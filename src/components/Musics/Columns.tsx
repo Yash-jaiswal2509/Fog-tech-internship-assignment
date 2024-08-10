@@ -15,6 +15,7 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { useMusicContext } from "@/lib/MusicProvider";
 import { useState } from "react";
 
 type ColumnsProps = {
@@ -22,10 +23,15 @@ type ColumnsProps = {
 };
 
 const Page = ({ musicData }: ColumnsProps) => {
-  const [music, setMusic] = useState(musicData);
+  const { setMusic } = useMusicContext();
+  const [isActive, setIsActive] = useState<number | null>(null);
+
+  const handleDoubleClick = (id: number) => {
+    setIsActive(isActive != id ? id : id);
+  };
 
   const getMusicPos = (id: number) => {
-    return music.findIndex((music) => music.id == id);
+    return musicData.findIndex((music) => music.id == id);
   };
 
   const handleDragEnd = (event: { active: any; over: any }) => {
@@ -35,17 +41,15 @@ const Page = ({ musicData }: ColumnsProps) => {
       return;
     }
 
-    setMusic((music) => {
-      const oldPos = getMusicPos(active.id);
-      const newPos = getMusicPos(over.id);
+    const oldPos = getMusicPos(active.id);
+    const newPos = getMusicPos(over.id);
+    const newMusicList = arrayMove(musicData, oldPos, newPos).map(
+      (music, index) => {
+        return { ...music, id: index + 1 };
+      },
+    );
 
-      const newMusicList = arrayMove(music, oldPos, newPos);
-
-      return newMusicList.map((music, index) => ({
-        ...music,
-        id: index + 1,
-      }));
-    });
+    setMusic(newMusicList);
   };
 
   const sensors = useSensors(
@@ -56,7 +60,6 @@ const Page = ({ musicData }: ColumnsProps) => {
     }),
   );
 
-  
   return (
     <>
       <div className="grid-cols-popular my-4 grid text-center font-['Poppins',sans-serif] text-lg font-semibold text-[#CFC5C5]">
@@ -72,9 +75,17 @@ const Page = ({ musicData }: ColumnsProps) => {
         onDragEnd={handleDragEnd}
         collisionDetection={closestCorners}
       >
-        <SortableContext items={music} strategy={verticalListSortingStrategy}>
-          {music.map((data) => (
-            <Music music={data} />
+        <SortableContext
+          items={musicData}
+          strategy={verticalListSortingStrategy}
+        >
+          {musicData.map((data, index) => (
+            <Music
+              music={data}
+              key={index}
+              isActive={isActive}
+              onDoubleClick={handleDoubleClick}
+            />
           ))}
         </SortableContext>
       </DndContext>

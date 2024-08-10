@@ -1,4 +1,4 @@
-import IndividualBar from "../../../assets/individual_bar";
+import IndividualBar from "../../../lib/individual_bar";
 
 const Page = () => {
   return (

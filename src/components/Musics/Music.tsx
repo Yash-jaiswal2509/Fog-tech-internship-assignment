@@ -1,22 +1,38 @@
 import { MusicDataProps } from "@/lib/music_data";
+import { cn } from "@/lib/utils";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-const Page = ({ music }: { music: MusicDataProps }) => {
+type ColumnsProps = {
+  music: MusicDataProps;
+  isActive: number | null;
+  onDoubleClick: (id: number) => void;
+};
+
+const Page = ({ music, isActive, onDoubleClick }: ColumnsProps) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: music.id.toString() });
 
   const style = { transition, transform: CSS.Transform.toString(transform) };
+
   return (
     <div
+      id={music.id.toString()}
       ref={setNodeRef}
       {...attributes}
       {...listeners}
       style={style}
-      id={music.id.toString()}
-      className="grid-cols-popular grid items-center gap-x-1 py-2 text-center font-['Poppins',sans-serif] text-lg font-semibold text-[#F6F6F6]"
+      className={cn(
+        "grid-cols-popular grid items-center gap-x-1 py-2 text-center font-['Poppins',sans-serif] text-lg font-semibold text-[#F6F6F6]",
+        isActive == music.id ? "selected-music" : "",
+      )}
+      onDoubleClick={() => onDoubleClick(music.id)}
     >
-      <h1 className="">{music.id}</h1>
+      {isActive == music.id ? (
+        <img src="../src/assets/playing.svg" className="mx-auto" alt="Playing" />
+      ) : (
+        <h1 className="">{music.id}</h1>
+      )}
       <div className="grid-cols-subnav ml-2 grid items-center">
         <img src={`../src/assets/${music.title}.svg`} alt="Thumbnail" />
         <h1 className="truncate text-left">{music.title}</h1>
