@@ -2,8 +2,7 @@ import IndividualBar from "../../../assets/individual_bar";
 
 const Page = () => {
   return (
-    // have to change height of the sidebar form lvh to h-full
-    <div className="flex h-lvh flex-col bg-[#0E0E0E] pl-[70px] pt-[26px]">
+    <div className="flex h-full flex-col bg-[#0E0E0E] pl-[70px] pt-[26px]">
       <div className="flex items-center gap-4">
         <img src="Logo.png" alt="Logo" />
         <h1 className="logo-height flex text-[#FF5656]">

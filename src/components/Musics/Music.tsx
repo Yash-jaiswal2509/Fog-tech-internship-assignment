@@ -1,8 +1,18 @@
 import { MusicDataProps } from "@/lib/music_data";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 const Page = ({ music }: { music: MusicDataProps }) => {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: music.id.toString() });
+
+  const style = { transition, transform: CSS.Transform.toString(transform) };
   return (
     <div
+      ref={setNodeRef}
+      {...attributes}
+      {...listeners}
+      style={style}
       id={music.id.toString()}
       className="grid-cols-popular grid items-center gap-x-1 py-2 text-center font-['Poppins',sans-serif] text-lg font-semibold text-[#F6F6F6]"
     >

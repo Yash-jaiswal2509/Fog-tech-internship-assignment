@@ -2,7 +2,7 @@ import Musics from "@/components/Musics/Musics";
 
 const Page = () => {
   return (
-    <div className="custom-gradient-1 h-lvh">
+    <div className="custom-gradient-1 h-full">
       <div className="mt-11 flex items-center justify-around text-[#F6F6F6]">
         <div className="flex gap-[50px] text-lg">
           <h1>Music</h1>

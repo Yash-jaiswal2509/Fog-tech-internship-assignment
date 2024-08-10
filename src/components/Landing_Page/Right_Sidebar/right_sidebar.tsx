@@ -7,7 +7,7 @@ const Page = () => {
     setValue(newValue);
   };
   return (
-    <div className="custom-gradient-2 flex h-lvh">
+    <div className="custom-gradient-2 flex h-full">
       <div className="box-shadow mx-auto mb-6 mt-auto flex h-fit flex-col items-center rounded-2xl bg-[#6B0000] p-5">
         <h1 className="font-[Poppins,sans-serif] text-lg font-semibold text-[#F6F6F6]">
           Now Playing
