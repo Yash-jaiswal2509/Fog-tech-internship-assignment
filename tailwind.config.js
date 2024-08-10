@@ -19,6 +19,8 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         layout: "1.2fr 3fr 1fr",
+        popular: "0.5fr 1.5fr 0.5fr 0.5fr 1.2fr",
+        subnav: "0.2fr 0.8fr",
       },
       colors: {
         border: "hsl(var(--border))",

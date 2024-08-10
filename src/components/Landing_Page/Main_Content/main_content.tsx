@@ -1,3 +1,5 @@
+import Musics from "@/components/Musics/Musics";
+
 const Page = () => {
   return (
     <div className="custom-gradient-1 h-lvh">
@@ -22,8 +24,8 @@ const Page = () => {
         </div>
       </div>
       <div className="relative">
-        <div className="custom-bg brightness-70 mx-auto mt-40 flex">
-          <div className="ml-12 my-auto">
+        <div className="custom-bg brightness-70 mx-auto mt-36 flex">
+          <div className="my-auto ml-12">
             <h1 className="flex items-center gap-2 text-[#F6F6F6]">
               <img src="../src/assets/Verified.svg" />
               Verified Artist
@@ -42,6 +44,7 @@ const Page = () => {
           className="absolute bottom-0 right-[20%] z-10"
         />
       </div>
+      <Musics />
     </div>
   );
 };
