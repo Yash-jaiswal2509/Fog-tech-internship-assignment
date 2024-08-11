@@ -5,10 +5,18 @@ const Page = () => {
     <div className="custom-gradient-1 h-full">
       <div className="mt-11 flex flex-col items-center gap-5 text-[#F6F6F6] md:flex-row md:justify-around">
         <div className="flex gap-6 text-base xl:gap-12 xl:text-lg">
-          <h1>Music</h1>
-          <h1>Podcast</h1>
-          <h1>Live</h1>
-          <h1>Radio</h1>
+          <h1 className="cursor-pointer hover:font-bold hover:text-[#2C0000]">
+            Music
+          </h1>
+          <h1 className="cursor-pointer hover:font-bold hover:text-[#2C0000]">
+            Podcast
+          </h1>
+          <h1 className="cursor-pointer hover:font-bold hover:text-[#2C0000]">
+            Live
+          </h1>
+          <h1 className="cursor-pointer hover:font-bold hover:text-[#2C0000]">
+            Radio
+          </h1>
         </div>
 
         <>
@@ -45,7 +53,7 @@ const Page = () => {
         <img
           src="../src/assets/Michael.svg"
           alt="Michael Jackson"
-          className="absolute bottom-0 right-[12%] sm:right-[8%] z-10 h-[110%] sm:h-[120%] xl:h-auto 2xl:right-[16%]"
+          className="absolute bottom-0 right-[12%] z-10 h-[110%] sm:right-[8%] sm:h-[120%] xl:h-auto 2xl:right-[16%]"
         />
       </div>
       <Musics />

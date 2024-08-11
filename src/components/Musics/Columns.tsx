@@ -23,11 +23,13 @@ type ColumnsProps = {
 };
 
 const Page = ({ musicData }: ColumnsProps) => {
-  const { setMusic, setIsActive } = useMusicContext();
-  const [active, setActive] = useState<number | null>(null);
+  const { setMusic, setIsActive, setSelectedMusic } = useMusicContext();
+  const [active, setActive] = useState<string | null>(null);
 
-  const handleDoubleClick = (id: number) => {
-    setActive(active != id ? id : id);
+  const handleDoubleClick = (name: string) => {
+    setActive(active !== name ? name : name);
+    const clickedMusic = musicData.filter((music) => music.title === name);
+    setSelectedMusic(clickedMusic[0]);
     setIsActive(true);
   };
 
@@ -63,7 +65,7 @@ const Page = ({ musicData }: ColumnsProps) => {
 
   return (
     <>
-      <div className="my-4 grid grid-cols-popular text-center font-['Poppins',sans-serif] font-semibold text-[#CFC5C5] text-xs md:text-sm lg:text-base 2xl:text-lg">
+      <div className="my-4 grid grid-cols-popular text-center font-['Poppins',sans-serif] text-xs font-semibold text-[#CFC5C5] md:text-sm lg:text-base 2xl:text-lg">
         <h1>#</h1>
         <h1>TITLE</h1>
         <h1 className="truncate">PLAYING</h1>

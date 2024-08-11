@@ -5,8 +5,8 @@ import { CSS } from "@dnd-kit/utilities";
 
 type ColumnsProps = {
   music: MusicDataProps;
-  active: number | null;
-  onDoubleClick: (id: number) => void;
+  active: string | null;
+  onDoubleClick: (id: string) => void;
 };
 
 const Page = ({ music, active, onDoubleClick }: ColumnsProps) => {
@@ -23,12 +23,12 @@ const Page = ({ music, active, onDoubleClick }: ColumnsProps) => {
       {...listeners}
       style={style}
       className={cn(
-        "grid-cols-popular grid items-center gap-x-1 py-2 text-center font-['Poppins',sans-serif] font-semibold text-[#F6F6F6] text-xs md:text-sm xl:text-base 2xl:text-lg",
-        active == music.id ? "selected-music" : "",
+        "grid grid-cols-popular items-center gap-x-1 py-2 text-center font-['Poppins',sans-serif] text-xs font-semibold text-[#F6F6F6] md:text-sm xl:text-base 2xl:text-lg",
+        active === music.title ? "selected-music" : "",
       )}
-      onDoubleClick={() => onDoubleClick(music.id)}
+      onDoubleClick={() => onDoubleClick(music.title)}
     >
-      {active == music.id ? (
+      {active === music.title ? (
         <img
           src="../src/assets/playing.svg"
           className="mx-auto"
@@ -37,13 +37,13 @@ const Page = ({ music, active, onDoubleClick }: ColumnsProps) => {
       ) : (
         <h1 className="">{music.id}</h1>
       )}
-      <div className="grid-cols-subnav ml-2 grid items-center gap-2 2xl:gap-0">
+      <div className="ml-2 grid grid-cols-subnav items-center gap-2 2xl:gap-0">
         <img src={`../src/assets/${music.title}.svg`} alt="Thumbnail" />
         <h1 className="truncate text-left">{music.title}</h1>
       </div>
       <h1 className="truncate">{music.playing.toLocaleString()}</h1>
       <h1>{music.time}</h1>
-      <h1 className="truncate pr-6 md:pr-16 text-right">{music.album}</h1>
+      <h1 className="truncate pr-6 text-right md:pr-16">{music.album}</h1>
     </div>
   );
 };

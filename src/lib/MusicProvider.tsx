@@ -7,6 +7,8 @@ type MusicContextType = {
   setMusic: (music: MusicDataProps[]) => void;
   isActive: boolean;
   setIsActive: (bool: boolean) => void;
+  selectedMusic: MusicDataProps | null;
+  setSelectedMusic: (music: MusicDataProps) => void;
 };
 
 const initialState = {
@@ -14,6 +16,8 @@ const initialState = {
   setMusic: () => {},
   isActive: false,
   setIsActive: () => {},
+  selectedMusic: null,
+  setSelectedMusic: () => {},
 };
 
 const musicContext = createContext<MusicContextType>(initialState);
@@ -32,13 +36,19 @@ type MusicProviderProps = {
 const MusicProvider = ({ children }: MusicProviderProps) => {
   const [music, setMusic] = useState<MusicDataProps[]>(musicData);
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [selectedMusic, setSelectedMusic] = useState<MusicDataProps | null>(
+    null,
+  );
 
   const contextValue = {
     music,
     setMusic: (music: MusicDataProps[]) => setMusic(music),
     isActive,
     setIsActive: (bool: boolean) => setIsActive(bool),
+    selectedMusic,
+    setSelectedMusic: (music: MusicDataProps) => setSelectedMusic(music),
   };
+
   return (
     <musicContext.Provider value={contextValue}>
       {children}
