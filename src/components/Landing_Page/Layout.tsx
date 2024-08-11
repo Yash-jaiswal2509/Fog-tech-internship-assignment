@@ -11,7 +11,7 @@ const Layout = () => {
       className={cn(
         "grid h-full",
         isActive
-          ? "lg:grid-cols-activeLayoutTablet grid-cols-activeLayoutMobile 2xl:grid-cols-activeLayout"
+          ? "lg:grid-cols-activeLayoutTablet 2xl:grid-cols-activeLayout"
           : "lg:grid-cols-inactiveLayout",
       )}
     >

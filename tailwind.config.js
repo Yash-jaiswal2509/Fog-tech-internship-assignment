@@ -19,10 +19,10 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         activeLayout: "1.2fr 3fr 1fr",
-        activeLayoutTablet: "1fr 2.5fr 1fr",
-        activeLayoutMobile: "0.15fr 2fr 0.9fr",
+        activeLayoutTablet: "1fr 2.4fr 1.1fr",
         inactiveLayout: "0.8fr 2.2fr",
-        inactiveLayoutTablet: "",
+        inactiveLayoutTablet: "0.5fr 2.9fr",
+        musicPlayer: "1fr 1fr 3fr",
         popular: "0.5fr 1.5fr 0.5fr 0.5fr 1.2fr",
         subnav: "0.2fr 0.8fr",
       },
