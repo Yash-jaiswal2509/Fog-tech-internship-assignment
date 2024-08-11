@@ -18,7 +18,11 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        layout: "1.2fr 3fr 1fr",
+        activeLayout: "1.2fr 3fr 1fr",
+        activeLayoutTablet: "1fr 2.5fr 1fr",
+        activeLayoutMobile: "0.15fr 2fr 0.9fr",
+        inactiveLayout: "0.8fr 2.2fr",
+        inactiveLayoutTablet: "",
         popular: "0.5fr 1.5fr 0.5fr 0.5fr 1.2fr",
         subnav: "0.2fr 0.8fr",
       },

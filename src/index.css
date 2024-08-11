@@ -10,9 +10,16 @@ body,
 
 .logo-height {
   font-family: "Poppins", sans-serif;
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 600;
-  line-height: 54px;
+  line-height: 36px;
+}
+
+.logo-height-active {
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 32px;
 }
 
 .menu {
@@ -20,17 +27,14 @@ body,
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
-  text-align: left;
   color: #cfc5c5;
   text-transform: uppercase;
 }
 
 .individual-bar-text {
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
   font-weight: 500;
   line-height: 27px;
-  text-align: left;
   color: #f6f6f6;
 }
 
@@ -49,13 +53,10 @@ body,
 
 .custom-bg {
   background-image: url("../src/assets/Background.svg");
-  width: 882px;
-  height: 343px;
-  top: 223px;
-  left: 537px;
+  height: 160px;
+  width: 90%;
   gap: 0px;
-  border-radius: 40px 0px 0px 0px;
-  opacity: 0px;
+  border-radius: 40px;
 }
 
 .box-shadow {
@@ -72,4 +73,57 @@ body,
 .selected-music {
   background-color: #520000;
   border-left: 4px solid #ca0000;
+}
+
+@media (min-width: 600px) {
+  .custom-bg {
+    height: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo-height-active,
+  .logo-height {
+    /* display: none; */
+    margin: auto;
+  }
+  .menu {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .logo-height {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
+  }
+
+  .logo-height-active {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .custom-bg {
+    height: 343px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .logo-height {
+    font-family: "Poppins", sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 54px;
+  }
+
+  .logo-height-active {
+    font-family: "Poppins", sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 54px;
+  }
 }

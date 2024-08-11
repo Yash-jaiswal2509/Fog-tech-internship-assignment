@@ -23,11 +23,12 @@ type ColumnsProps = {
 };
 
 const Page = ({ musicData }: ColumnsProps) => {
-  const { setMusic } = useMusicContext();
-  const [isActive, setIsActive] = useState<number | null>(null);
+  const { setMusic, setIsActive } = useMusicContext();
+  const [active, setActive] = useState<number | null>(null);
 
   const handleDoubleClick = (id: number) => {
-    setIsActive(isActive != id ? id : id);
+    setActive(active != id ? id : id);
+    setIsActive(true);
   };
 
   const getMusicPos = (id: number) => {
@@ -62,10 +63,10 @@ const Page = ({ musicData }: ColumnsProps) => {
 
   return (
     <>
-      <div className="grid-cols-popular my-4 grid text-center font-['Poppins',sans-serif] text-lg font-semibold text-[#CFC5C5]">
+      <div className="my-4 grid grid-cols-popular text-center font-['Poppins',sans-serif] font-semibold text-[#CFC5C5] text-xs md:text-sm lg:text-base 2xl:text-lg">
         <h1>#</h1>
         <h1>TITLE</h1>
-        <h1>PLAYING</h1>
+        <h1 className="truncate">PLAYING</h1>
         <h1>TIME</h1>
         <h1>ALBUM</h1>
       </div>
@@ -83,7 +84,7 @@ const Page = ({ musicData }: ColumnsProps) => {
             <Music
               music={data}
               key={index}
-              isActive={isActive}
+              active={active}
               onDoubleClick={handleDoubleClick}
             />
           ))}

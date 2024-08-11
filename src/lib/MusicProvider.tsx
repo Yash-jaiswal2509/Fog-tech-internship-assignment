@@ -5,11 +5,15 @@ import { musicData } from "./music_data";
 type MusicContextType = {
   music: MusicDataProps[];
   setMusic: (music: MusicDataProps[]) => void;
+  isActive: boolean;
+  setIsActive: (bool: boolean) => void;
 };
 
 const initialState = {
   music: [],
   setMusic: () => {},
+  isActive: false,
+  setIsActive: () => {},
 };
 
 const musicContext = createContext<MusicContextType>(initialState);
@@ -27,10 +31,13 @@ type MusicProviderProps = {
 
 const MusicProvider = ({ children }: MusicProviderProps) => {
   const [music, setMusic] = useState<MusicDataProps[]>(musicData);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const contextValue = {
     music,
     setMusic: (music: MusicDataProps[]) => setMusic(music),
+    isActive,
+    setIsActive: (bool: boolean) => setIsActive(bool),
   };
   return (
     <musicContext.Provider value={contextValue}>
