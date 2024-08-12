@@ -30,7 +30,7 @@ const Page = ({ music, activeName, onDoubleClick }: ColumnsProps) => {
     >
       {activeName === music.title ? (
         <img
-          src="/assets/playing.svg"
+          src="/assets/Playing.svg"
           className="mx-auto"
           alt="Playing"
         />
