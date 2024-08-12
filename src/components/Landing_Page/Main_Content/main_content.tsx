@@ -27,7 +27,7 @@ const Page = () => {
               placeholder="Michael Jackson"
             />
             <img
-              src="../src/assets/Search.svg"
+              src="/assets/Search.svg"
               alt="Search"
               className="absolute right-5 top-3"
             />
@@ -39,7 +39,7 @@ const Page = () => {
         <div className="custom-bg brightness-70 mx-auto mt-10 flex sm:mt-20 md:mt-28 xl:mt-36">
           <div className="my-auto ml-4 sm:ml-6 md:ml-12">
             <h1 className="flex items-center gap-2 text-sm text-[#F6F6F6] sm:text-base">
-              <img src="../src/assets/Verified.svg" />
+              <img src="/assets/Verified.svg" />
               Verified Artist
             </h1>
             <h1 className="mt-1 font-['Poppins',sans-serif] text-lg font-semibold text-[#F6F6F6] sm:text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl">
@@ -51,7 +51,7 @@ const Page = () => {
           </div>
         </div>
         <img
-          src="../src/assets/Michael.svg"
+          src="/assets/Michael.svg"
           alt="Michael Jackson"
           className="absolute bottom-0 right-[12%] z-10 h-[110%] sm:right-[8%] sm:h-[120%] xl:h-auto 2xl:right-[16%]"
         />

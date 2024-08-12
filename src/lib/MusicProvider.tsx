@@ -101,7 +101,7 @@ const MusicProvider = ({ children }: MusicProviderProps) => {
         howl.stop();
       }
       const sound = new Howl({
-        src: [`../src/assets/${selectedMusic.title}.mp3`],
+        src: [`/assets/${selectedMusic.title}.mp3`],
         html5: true,
         volume: 1,
       });

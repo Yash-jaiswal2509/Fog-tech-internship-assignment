@@ -60,7 +60,7 @@ const Page = () => {
               </h1>
 
               <img
-                src={`../src/assets/${selectedMusic && selectedMusic.title}.svg`}
+                src={`/assets/${selectedMusic && selectedMusic.title}.svg`}
                 alt="Pic"
                 className="mt-4 w-[90%] xl:w-[95%] 2xl:w-full"
               />
@@ -84,32 +84,32 @@ const Page = () => {
 
               <div className="mb-2 mt-6 flex items-center gap-2">
                 <img
-                  src="../src/assets/Repeat.svg"
+                  src="/assets/Repeat.svg"
                   className="mr-4 cursor-pointer"
                   alt="Repeat"
                   onClick={loopTrack}
                 />
-                <img src="../src/assets/Back.svg" className="cursor-pointer" alt="Back" onClick={playPrevTrack} />
+                <img src="/assets/Back.svg" className="cursor-pointer" alt="Back" onClick={playPrevTrack} />
                 {howl?.playing() ?
                   (
                     <img
-                      src="../src/assets/Pause.svg"
+                      src="/assets/Pause.svg"
                       alt="Pause"
                       className="size-10 cursor-pointer"
                       onClick={onHandlePlayPause}
                     />
                   ) : (
                     <img
-                      src="../src/assets/Play.svg"
+                      src="/assets/Play.svg"
                       alt="Play"
                       className="size-10 cursor-pointer"
                       onClick={onHandlePlayPause}
                     />
                   )
                 }
-                <img src="../src/assets/Next.svg" className="cursor-pointer" alt="Next" onClick={playNextTrack} />
+                <img src="/assets/Next.svg" className="cursor-pointer" alt="Next" onClick={playNextTrack} />
                 <img
-                  src="../src/assets/Random.svg"
+                  src="/assets/Random.svg"
                   className="ml-4 cursor-pointer"
                   alt="Random"
                   onClick={playRandomTrack}
@@ -122,7 +122,7 @@ const Page = () => {
           <div className="box-shadow flex items-center justify-around gap-5 bg-[#6B0000] p-2 lg:hidden">
             <div className="flex items-center gap-2">
               <img
-                src={`../src/assets/${selectedMusic && selectedMusic.title}.svg`}
+                src={`/assets/${selectedMusic && selectedMusic.title}.svg`}
                 alt="Pic"
               />
               <h1 className="hidden text-nowrap font-[Poppins,sans-serif] text-lg font-semibold text-[#F6F6F6] md:block">
@@ -140,13 +140,13 @@ const Page = () => {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-evenly gap-2">
                 <img
-                  src="../src/assets/Repeat.svg"
+                  src="/assets/Repeat.svg"
                   alt="Repeat"
                   className="size-5 sm:size-6 cursor-pointer"
                   onClick={loopTrack}
                 />
                 <img
-                  src="../src/assets/Back.svg"
+                  src="/assets/Back.svg"
                   alt="Back"
                   className="size-7 sm:size-8 cursor-pointer"
                   onClick={playPrevTrack}
@@ -154,14 +154,14 @@ const Page = () => {
                 {howl?.playing() ?
                   (
                     <img
-                      src="../src/assets/Pause.svg"
+                      src="/assets/Pause.svg"
                       alt="Pause"
                       className="size-7 sm:size-8 cursor-pointer"
                       onClick={onHandlePlayPause}
                     />
                   ) : (
                     <img
-                      src="../src/assets/Play.svg"
+                      src="/assets/Play.svg"
                       alt="Play"
                       className="size-7 sm:size-8 cursor-pointer"
                       onClick={onHandlePlayPause}
@@ -169,13 +169,13 @@ const Page = () => {
                   )
                 }
                 <img
-                  src="../src/assets/Next.svg"
+                  src="/assets/Next.svg"
                   alt="Next"
                   className="size-7 sm:size-8 cursor-pointer"
                   onClick={playNextTrack}
                 />
                 <img
-                  src="../src/assets/Random.svg"
+                  src="/assets/Random.svg"
                   alt="Random"
                   className="size-4 sm:size-6 cursor-pointer"
                   onClick={playRandomTrack}

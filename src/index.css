@@ -52,7 +52,7 @@ body,
 }
 
 .custom-bg {
-  background-image: url("../src/assets/Background.svg");
+  background-image: url("/assets/Background.svg");
   height: 160px;
   width: 90%;
   gap: 0px;
@@ -64,7 +64,7 @@ body,
 }
 
 .MuiSlider-thumb {
-  background-image: url("../src/assets/Thumb.svg");
+  background-image: url("/assets/Thumb.svg");
   background-repeat: no-repeat;
   background-size: 85%;
   background-position: center;

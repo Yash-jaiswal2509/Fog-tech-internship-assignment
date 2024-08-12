@@ -10,7 +10,7 @@ const Page = ({ name }: IndividualBarProps) => {
   return (
     <div className="mt-2 items-center gap-3 lg:flex 2xl:gap-5">
       <img
-        src={`../src/assets/${name}.svg`}
+        src={`/assets/${name}.svg`}
         alt={`${name}`}
         className={cn(
           "mb-1 hidden lg:mb-0 lg:block lg:size-6 xl:size-8 2xl:size-10",

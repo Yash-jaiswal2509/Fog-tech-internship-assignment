@@ -30,7 +30,7 @@ const Page = ({ music, activeName, onDoubleClick }: ColumnsProps) => {
     >
       {activeName === music.title ? (
         <img
-          src="../src/assets/playing.svg"
+          src="/assets/playing.svg"
           className="mx-auto"
           alt="Playing"
         />
@@ -38,7 +38,7 @@ const Page = ({ music, activeName, onDoubleClick }: ColumnsProps) => {
         <h1 className="">{music.id}</h1>
       )}
       <div className="ml-2 grid grid-cols-subnav items-center gap-2 2xl:gap-0">
-        <img src={`../src/assets/${music.title}.svg`} alt="Thumbnail" />
+        <img src={`/assets/${music.title}.svg`} alt="Thumbnail" />
         <h1 className="truncate text-left">{music.title}</h1>
       </div>
       <h1 className="truncate">{music.playing.toLocaleString()}</h1>
