@@ -18,7 +18,7 @@ const Page = () => {
     }
   };
 
-  const onChangeHandler = (event: any, newValue: number | number[]) => {
+  const onChangeHandler = (_event: Event, newValue: number | number[]) => {
     const newSeekValue = newValue as number;
     setValue(newSeekValue);
 
@@ -42,7 +42,6 @@ const Page = () => {
 
   useEffect(() => {
     if (howl && selectedMusic) {
-      // Reset slider position when a new track is selected
       setValue(0);
     }
   }, [selectedMusic]);
