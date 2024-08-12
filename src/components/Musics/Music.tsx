@@ -5,11 +5,11 @@ import { CSS } from "@dnd-kit/utilities";
 
 type ColumnsProps = {
   music: MusicDataProps;
-  active: string | null;
+  activeName: string | null;
   onDoubleClick: (id: string) => void;
 };
 
-const Page = ({ music, active, onDoubleClick }: ColumnsProps) => {
+const Page = ({ music, activeName, onDoubleClick }: ColumnsProps) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: music.id.toString() });
 
@@ -24,11 +24,11 @@ const Page = ({ music, active, onDoubleClick }: ColumnsProps) => {
       style={style}
       className={cn(
         "grid grid-cols-popular items-center gap-x-1 py-2 text-center font-['Poppins',sans-serif] text-xs font-semibold text-[#F6F6F6] md:text-sm xl:text-base 2xl:text-lg",
-        active === music.title ? "selected-music" : "",
+        activeName === music.title ? "selected-music" : "",
       )}
       onDoubleClick={() => onDoubleClick(music.title)}
     >
-      {active === music.title ? (
+      {activeName === music.title ? (
         <img
           src="../src/assets/playing.svg"
           className="mx-auto"

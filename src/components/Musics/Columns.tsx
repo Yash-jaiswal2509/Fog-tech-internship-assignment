@@ -16,21 +16,21 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useMusicContext } from "@/lib/MusicProvider";
-import { useState } from "react";
 
 type ColumnsProps = {
   musicData: MusicDataProps[];
 };
 
 const Page = ({ musicData }: ColumnsProps) => {
-  const { setMusic, setIsActive, setSelectedMusic } = useMusicContext();
-  const [active, setActive] = useState<string | null>(null);
+  const { activeName, setActiveName, setMusic, setIsActive, setSelectedMusic } = useMusicContext();
 
   const handleDoubleClick = (name: string) => {
-    setActive(active !== name ? name : name);
-    const clickedMusic = musicData.filter((music) => music.title === name);
-    setSelectedMusic(clickedMusic[0]);
-    setIsActive(true);
+    setActiveName(name);
+    const clickedMusic = musicData.find((music) => music.title === name);
+    if (clickedMusic) {
+      setSelectedMusic(clickedMusic);
+      setIsActive(true);
+    }
   };
 
   const getMusicPos = (id: number) => {
@@ -38,18 +38,18 @@ const Page = ({ musicData }: ColumnsProps) => {
   };
 
   const handleDragEnd = (event: { active: any; over: any }) => {
-    const { active, over } = event;
+    const { active: activeDrag, over } = event;
 
-    if (active.id == over.id) {
+    if (activeDrag.id == over.id) {
       return;
     }
 
-    const oldPos = getMusicPos(active.id);
+    const oldPos = getMusicPos(activeDrag.id);
     const newPos = getMusicPos(over.id);
     const newMusicList = arrayMove(musicData, oldPos, newPos).map(
       (music, index) => {
         return { ...music, id: index + 1 };
-      },
+      }
     );
 
     setMusic(newMusicList);
@@ -60,7 +60,7 @@ const Page = ({ musicData }: ColumnsProps) => {
     useSensor(TouchSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
-    }),
+    })
   );
 
   return (
@@ -86,7 +86,7 @@ const Page = ({ musicData }: ColumnsProps) => {
             <Music
               music={data}
               key={index}
-              active={active}
+              activeName={activeName}
               onDoubleClick={handleDoubleClick}
             />
           ))}
